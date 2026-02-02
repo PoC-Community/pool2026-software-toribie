@@ -424,8 +424,8 @@ Your todo list must:
 
 ## ✅ End of Day Checklist
 
-- [ ] I've created a simple HTML/CSS page
-- [ ] I understand JavaScript fundamentals (variables, functions, control flow)
+- [V] I've created a simple HTML/CSS page
+- [V] I understand JavaScript fundamentals (variables, functions, control flow)
 - [ ] I can manipulate the DOM
 - [ ] I can handle events
 - [ ] I've set up TypeScript
