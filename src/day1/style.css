@@ -3,12 +3,71 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #202020;
+    color:aliceblue;
 }
 
 h1 {
     background-color: khaki;
+    color:#202020;
 }
 
 .sillies {
     width: 40%
+}
+
+ .box { /*The background*/
+	--fg: #202020;
+	--bg_1: #000A;
+    --bg_2: #000C; /*darker diagonal lines*/
+	--top: "Placeholder text";
+	--topclr: white;
+	--shade: black;
+	--textclr: white;
+	margin-left: 1em;
+	margin-right: 1em;
+	background: repeating-linear-gradient(-45deg, var(--bg_1) 0, var(--bg_1) 6px, var(--bg_2) 6px, var(--bg_2)12px);
+	border-radius: 0px;
+	box-shadow: 0px 2px 4px #0004;
+	padding: 0.4em;
+	vertical-align: top;
+	text-align: left;
+	color: var(--textclr);
+	position: relative;
+	margin-bottom: 2em;
+}
+.box::before { /*Takes care of the border*/
+	content: '';
+	position: absolute;
+	left: -9px;
+	top: -9px;
+	right: 9px;
+	bottom: 9px;
+	box-sizing: border-box;
+	border: 5px solid var(--fg);
+	pointer-events: none;
+}
+.box::after{ /*Text on top*/
+	content: var(--top);
+	font-size: large;
+	font-family: 'Courier New', monospace;
+	color: var(--topclr);
+	position: absolute;
+	top: -15px;
+	letter-spacing: 0.1rem;
+	background-color: var(--fg);
+	padding-left: 2px;
+	padding-right: 3em;
+	padding-bottom: 2px;
+	text-shadow: var(--shade) 2px 3px;
+}
+
+#projects {
+    display: flexbox;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  #projects {flex-direction: row;}
 }
