@@ -40,7 +40,7 @@ function MyForm() {
   return (
     <div>
       <form>
-        <label>Enter your name:
+        <label>Enter something:
           <input
             type="text"
             value={name}
@@ -57,6 +57,65 @@ function MyForm() {
       </div>
     </div>
   )
+}
+
+function TodoItem(props)
+{
+    const [completed, setComplete] = useState(false);
+    const handleCheckedClick = () => setComplete(!completed)
+    const id = props.count + 1;
+    const text = props.text;
+
+    return (
+      <div className="tasklist">
+        <input onClick={handleCheckedClick} checked={completed} type="checkbox"/>
+        <p>{id}. {text}</p>
+        <button onClick={() => props.onDelete(props.id)}>Delete</button>
+      </div>
+    );
+}
+
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
+
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+    if (input.trim() !== "") {
+      setTodos([...todos, { id: Date.now(), text: input }]);
+      setInput("");
+    }
+  };
+
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  return (
+    <div>
+      <h3>Todo List</h3>
+      <form onSubmit={handleAddTodo}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Add a new task"
+        />
+        <button type="submit">Add</button>
+      </form>
+      <div>
+        {todos.map((todo, index) => (
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            count={index}
+            text={todo.text}
+            onDelete={handleDeleteTodo}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function App() {
@@ -91,6 +150,7 @@ function App() {
         </p>
       </div>
       <MyForm/>
+      <TodoList/>
       <footer>
         <p className="read-the-docs">
           <a href="https://vite.dev" target="_blank">Vite</a> & <a href="https://react.dev" target="_blank">React</a> docs.

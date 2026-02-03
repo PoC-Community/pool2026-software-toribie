@@ -57,3 +57,13 @@
   gap: 10px;
   justify-content: flex-start;
 }
+
+.tasklist {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  gap: 10px;
+  line-height: 0px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
