@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './App.css'
-
+import FetchDog from './Fetch';
 function MyHeader() {
     return (
         <header>
-            <h1>This is a header!</h1>
+            <h1>∠( ᐛ 」∠)_</h1>
         </header>
     );
 }
@@ -133,7 +133,8 @@ function App() {
     <>
     <MyHeader />
     <div>
-      <h2>Welcome to my app</h2>
+      <FetchDog />
+      <h2>〜〜(／￣▽)/ 〜ф</h2>
     </div>
       <div className="card">
         <br></br>
