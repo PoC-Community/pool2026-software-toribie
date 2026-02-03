@@ -48,3 +48,12 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.formData {
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+  padding-left: 2em;
+  gap: 10px;
+  justify-content: flex-start;
+}

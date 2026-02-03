@@ -38,16 +38,24 @@ function MyForm() {
   const [name, setName] = useState("");
 
   return (
-    <form>
-      <label>Enter your name:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <p>Current value: {name}</p>
-    </form>
+    <div>
+      <form>
+        <label>Enter your name:
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+      </form>
+      <p>Current input: {name}</p>
+      <div className="formData">
+        <p>Character count: {name.length}</p>
+        <button onClick={() => setName("")}>
+          Reset
+        </button>
+      </div>
+    </div>
   )
 }
 
@@ -82,6 +90,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <MyForm/>
       <footer>
         <p className="read-the-docs">
           <a href="https://vite.dev" target="_blank">Vite</a> & <a href="https://react.dev" target="_blank">React</a> docs.
